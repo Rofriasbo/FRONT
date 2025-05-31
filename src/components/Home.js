@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ const Home = () => {
     // Función para obtener los test de psicología
     const fetchTests = async () => {
         try {
-            const res = await axios.get('http://localhost:5001/api/tests');
+            const res = await axios.get('https://backend-iw-65a4f5c49add.herokuapp.com/api/tests');
             setTests(res.data);
         } catch (err) {
             console.error("Error fetching tests:", err);
@@ -21,7 +22,7 @@ const Home = () => {
     // Función para obtener los quizzes de personalidad
     const fetchQuizzes = async () => {
         try {
-            const res = await axios.get('http://localhost:5001/api/quizzes');
+            const res = await axios.get('https://backend-iw-65a4f5c49add.herokuapp.com/api/quizzes');
             setQuizzes(res.data);
         } catch (err) {
             console.error("Error fetching quizzes:", err);
