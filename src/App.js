@@ -29,7 +29,7 @@ function App() {
                 <Route path="/salud-mental" element={<SaludMental />} />
                 <Route path="/libros" element={<Libros />} />
                 <Route path="/contacto" element={<Contacto />} />
-                <Route path="/terminos" element={<TerminosServicio />} />  {/* Ruta para Términos */}
+                <Route path="/terminos" element={<TerminosServicio />} />  
                 <Route path="/libro/1" element={<Libro1 />} />
                 <Route path="/libro/2" element={<Libro2 />} />
                 <Route path="/libro/3" element={<Libro3 />} />
