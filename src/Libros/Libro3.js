@@ -27,7 +27,7 @@ const Libro3 = () => {
                         Stephen R. Covey fue un reconocido autor, conferencista y consultor organizacional. Conocido por su enfoque en principios éticos y valores universales,
                         Covey ayudó a millones de personas y empresas a mejorar su liderazgo, efectividad y relaciones. Su legado continúa a través de su organización FranklinCovey.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
+                    
                 </div>
             </div>
 
@@ -37,8 +37,10 @@ const Libro3 = () => {
                 <p>★ "Los principios que enseña Covey son atemporales y extremadamente valiosos."</p>
                 <p>★ "Lectura obligada para cualquier persona que quiera ser más efectiva."</p>
             </div>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };
 
 export default Libro3;
+//

@@ -23,7 +23,7 @@ const Libro7 = () => {
                         <strong>Sobre el autor:</strong><br />
                         Mihaly Csikszentmihalyi fue uno de los psicólogos más influyentes del siglo XX y es ampliamente reconocido como el padre de la psicología positiva. Su trabajo se centra en el bienestar, la creatividad y la experiencia óptima. Fue profesor en la Universidad de Chicago y en la Universidad de Claremont, y su concepto de “flow” ha sido adoptado en campos que van desde la educación hasta los negocios y el deporte.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
+                   
                 </div>
             </div>
 
@@ -33,6 +33,7 @@ const Libro7 = () => {
                 <p>★ "El concepto de 'fluir' me ha ayudado a mejorar mi enfoque y bienestar general."</p>
                 <p>★ "Una obra esencial para entender cómo funciona la felicidad y la motivación."</p>
             </div>
+            <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };

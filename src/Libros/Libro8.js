@@ -23,7 +23,6 @@ const Libro8 = () => {
                         <strong>Sobre el autor:</strong><br />
                         Erich Fromm (1900–1980) fue un destacado psicoanalista, sociólogo y humanista alemán-estadounidense. Es conocido por combinar el pensamiento freudiano con las teorías sociales del marxismo. Autor de múltiples libros influyentes, Fromm se enfocó en temas como la libertad, el amor, la alienación y el sentido de la vida. Su trabajo ha dejado una huella profunda en la psicología humanista y el pensamiento crítico contemporáneo.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
                 </div>
             </div>
 
@@ -33,6 +32,7 @@ const Libro8 = () => {
                 <p>★ "Fromm nos muestra que amar es una decisión y una habilidad, no solo un sentimiento."</p>
                 <p>★ "Profundo, reflexivo y necesario en los tiempos actuales."</p>
             </div>
+                 <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };

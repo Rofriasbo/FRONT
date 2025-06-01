@@ -29,7 +29,7 @@ const Libro1 = () => {
                 <p>★ "Un libro transformador que realmente cambia tu perspectiva sobre la vida y el sufrimiento."</p>
                 <p>★ "Excelente para quienes buscan encontrar paz y equilibrio en medio del caos."</p>
             </div>
-            <Link to="/libros" className="back-link">Volver a la lista de libros</Link>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };

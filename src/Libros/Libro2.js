@@ -27,7 +27,7 @@ const Libro2 = () => {
                 <p>★ "Este libro cambió mi forma de ver la vida y el trabajo en equipo."</p>
                 <p>★ "Muy revelador, especialmente en cuanto a la importancia de la empatía y la autorregulación emocional."</p>
             </div>
-            <Link to="/libros" className="back-link">Volver a la lista de libros</Link>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };

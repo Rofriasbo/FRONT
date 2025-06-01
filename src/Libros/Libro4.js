@@ -28,7 +28,7 @@ const Libro4 = () => {
                         Su trabajo sobre la mentalidad ha influenciado ampliamente la educación, el deporte y el liderazgo empresarial. Es reconocida por su enfoque científico y práctico para ayudar
                         a las personas a alcanzar su máximo potencial.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
+
                 </div>
             </div>
 
@@ -38,9 +38,9 @@ const Libro4 = () => {
                 <p>★ "Aprendí a valorar más el esfuerzo y la perseverancia que el talento natural."</p>
                 <p>★ "El concepto de mentalidad de crecimiento es una herramienta poderosa para el éxito."</p>
             </div>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };
 
 export default Libro4;
-//

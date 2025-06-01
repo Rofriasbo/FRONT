@@ -23,7 +23,6 @@ const Libro6 = () => {
                         <strong>Sobre el autor:</strong><br />
                         James Clear es un autor y conferencista reconocido internacionalmente por su trabajo en el desarrollo de hábitos, toma de decisiones y mejora continua. Su blog personal atrae a millones de lectores cada año, y ha trabajado con equipos deportivos profesionales, empresas Fortune 500 y organizaciones educativas para ayudarlos a alcanzar su máximo potencial a través de pequeños cambios consistentes.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
                 </div>
             </div>
 
@@ -33,6 +32,7 @@ const Libro6 = () => {
                 <p>★ "Práctico, directo y muy motivador. Una lectura indispensable."</p>
                 <p>★ "Ideal para quienes quieren mejorar su productividad y hábitos sin sentirse abrumados."</p>
             </div>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };

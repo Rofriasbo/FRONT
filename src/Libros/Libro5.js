@@ -27,7 +27,6 @@ const Libro5 = () => {
                         Su enfoque humanista de la psicoterapia influyó profundamente en la psicología moderna. A lo largo de su vida, escribió más de 30 libros
                         y dio conferencias en todo el mundo, convirtiéndose en una figura clave en el estudio del sentido de la vida y la resiliencia humana.
                     </p>
-                    <a href="/libros" className="back-link">← Volver a lista de libros</a>
                 </div>
             </div>
 
@@ -37,6 +36,7 @@ const Libro5 = () => {
                 <p>★ "Una lectura esencial para quienes buscan propósito en la vida."</p>
                 <p>★ "La resiliencia de Frankl es inspiradora y su mensaje sigue siendo relevante hoy."</p>
             </div>
+                <a href="/libros" className="back-link">← Volver a lista de libros</a>
         </div>
     );
 };
