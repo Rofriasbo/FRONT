@@ -7,7 +7,7 @@ import Psicologia from './pages/Psicologia';
 import SaludMental from './pages/SaludMental';
 import Contacto from './pages/Contacto';
 import Libros from './pages/Libros';
-import Libro1 from './Libros/Libro1';  // Importa las páginas de libros individuales
+import Libro1 from './Libros/Libro1';
 import Libro2 from './Libros/Libro2';
 import Libro3 from './Libros/Libro3';
 import Libro4 from './Libros/Libro4';
@@ -16,6 +16,7 @@ import Libro6 from './Libros/Libro6';
 import Libro7 from './Libros/Libro7';
 import Libro8 from './Libros/Libro8';
 import QuizDetail from './components/QuizDetail';
+import TerminosServicio from './pages/Terminos-servicio';  // Importación correcta del componente de Términos
 
 function App() {
     return (
@@ -28,7 +29,7 @@ function App() {
                 <Route path="/salud-mental" element={<SaludMental />} />
                 <Route path="/libros" element={<Libros />} />
                 <Route path="/contacto" element={<Contacto />} />
-                {/* Aquí agregamos las rutas para los libros específicos */}
+                <Route path="/terminos" element={<TerminosServicio />} />  {/* Ruta para Términos */}
                 <Route path="/libro/1" element={<Libro1 />} />
                 <Route path="/libro/2" element={<Libro2 />} />
                 <Route path="/libro/3" element={<Libro3 />} />
@@ -37,7 +38,6 @@ function App() {
                 <Route path="/libro/6" element={<Libro6 />} />
                 <Route path="/libro/7" element={<Libro7 />} />
                 <Route path="/libro/8" element={<Libro8 />} />
-
             </Routes>
             <Footer />
         </Router>
