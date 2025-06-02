@@ -1,0 +1,138 @@
+.psicologia-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #e0f7f1 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+.psicologia-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #38a169;  /* Verde que combina bien */
+    font-weight: 600;
+    text-align: center;
+}
+
+.nuevo-libro-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(56, 161, 105, 0.2);
+    margin: 0 auto 2rem;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nuevo-libro-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(56, 161, 105, 0.3);
+}
+
+.nuevo-libro-form input,
+.nuevo-libro-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nuevo-libro-form input:focus,
+.nuevo-libro-form textarea:focus {
+    border-color: #38a169;
+    box-shadow: 0 0 5px rgba(56, 161, 105, 0.3);
+    outline: none;
+}
+
+.nuevo-libro-form button {
+    padding: 12px 25px;
+    background-color: #38a169;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nuevo-libro-form button:hover {
+    background-color: #2f855a;
+    transform: scale(1.05);
+}
+
+/* 🔥 Previsualización controlada */
+.preview-imagen {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.preview-imagen img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔥 Combo box elegante */
+.nuevo-libro-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #38a169;
+    border-radius: 10px;
+    background-color: #f0f7f1;
+    color: #333;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(56, 161, 105, 0.1);
+}
+
+.nuevo-libro-form select:focus {
+    border-color: #2f855a;
+    background-color: #e6f5ef;
+    box-shadow: 0 0 5px rgba(56, 161, 105, 0.3);
+    outline: none;
+}
+
+.nuevo-libro-form select option {
+    background-color: #ffffff;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 600px) {
+    .nuevo-libro-form {
+        padding: 1rem;
+    }
+
+    .preview-imagen img {
+        max-width: 150px;
+    }
+
+    .modal-confirmacion {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .modal-contenido {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+}

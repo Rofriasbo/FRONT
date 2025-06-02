@@ -15,6 +15,7 @@ const Navbar = () => {
                 <li><Link to="/psicologia" className="nav-link">Psicología</Link></li>
                 <li><Link to="/salud-mental" className="nav-link">Salud Mental</Link></li>
                 <li><Link to="/libros" className="nav-link">Recursos</Link></li>
+                <li><Link to="/nuevo-libro" className="nav-link">Nuevo Libro</Link></li> {/* 🔥 Aquí está la llamada */}
                 <li><Link to="/contacto" className="nav-link contact-btn">Contacto</Link></li>
             </ul>
         </nav>

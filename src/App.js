@@ -16,7 +16,11 @@ import Libro6 from './Libros/Libro6';
 import Libro7 from './Libros/Libro7';
 import Libro8 from './Libros/Libro8';
 import QuizDetail from './components/QuizDetail';
-import TerminosServicio from './pages/Terminos-servicio';  // Importación correcta del componente de Términos
+import TerminosServicio from './pages/Terminos-servicio';
+
+// 👇 Importa el CRUD de libros y su CSS
+import Nuevo_Libro from './pages/Nuevo_Libro';
+import './pages/Nuevo_Libro.css';
 
 function App() {
     return (
@@ -29,7 +33,7 @@ function App() {
                 <Route path="/salud-mental" element={<SaludMental />} />
                 <Route path="/libros" element={<Libros />} />
                 <Route path="/contacto" element={<Contacto />} />
-                <Route path="/terminos" element={<TerminosServicio />} />  
+                <Route path="/terminos" element={<TerminosServicio />} />
                 <Route path="/libro/1" element={<Libro1 />} />
                 <Route path="/libro/2" element={<Libro2 />} />
                 <Route path="/libro/3" element={<Libro3 />} />
@@ -38,6 +42,7 @@ function App() {
                 <Route path="/libro/6" element={<Libro6 />} />
                 <Route path="/libro/7" element={<Libro7 />} />
                 <Route path="/libro/8" element={<Libro8 />} />
+                <Route path="/nuevo-libro" element={<Nuevo_Libro />} />
             </Routes>
             <Footer />
         </Router>
