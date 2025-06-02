@@ -12,7 +12,7 @@ const LibrosCrud = () => {
         calificacion: '',
         descripcion: ''
     });
-    const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
+    const [modal, setModal] = useState({ mostrar: false, tipo: '', mensaje: '' });
     const navigate = useNavigate();
 
     const handleOperacionChange = (e) => {
@@ -31,45 +31,57 @@ const LibrosCrud = () => {
             if (libroEncontrado) {
                 setNuevoLibro(libroEncontrado);
             } else {
-                alert('Libro no encontrado');
+                setModal({ mostrar: true, tipo: 'info', mensaje: 'Libro no encontrado.' });
             }
         } else if (operacion === 'Eliminar' && nuevoLibro.titulo) {
-            const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
-            const nuevosLibros = librosGuardados.filter(libro => libro.titulo.toLowerCase() !== nuevoLibro.titulo.toLowerCase());
-            localStorage.setItem('libros', JSON.stringify(nuevosLibros));
-            alert('Libro eliminado exitosamente');
-            navigate('/libros');
+            setModal({ mostrar: true, tipo: 'confirmarEliminar', mensaje: `¿Estás seguro de eliminar "${nuevoLibro.titulo}"?` });
         }
+    };
+
+    const confirmarEliminar = () => {
+        const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
+        const nuevosLibros = librosGuardados.filter(libro => libro.titulo.toLowerCase() !== nuevoLibro.titulo.toLowerCase());
+        localStorage.setItem('libros', JSON.stringify(nuevosLibros));
+        setModal({ mostrar: true, tipo: 'exito', mensaje: 'Libro eliminado exitosamente.' });
     };
 
     const handleSubmit = () => {
         const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
+        // ✅ Validar y formatear calificación antes de guardar
+        let calificacionFinal = "N/A";
+        if (nuevoLibro.calificacion && !isNaN(nuevoLibro.calificacion)) {
+            const num = parseFloat(nuevoLibro.calificacion);
+            if (num >= 0 && num <= 5) {
+                calificacionFinal = num.toFixed(1);  // Redondear a 1 decimal
+            }
+        }
+
         if (operacion === 'Agregar') {
             if (nuevoLibro.titulo && nuevoLibro.imagen) {
-                const nuevoLibroConID = { ...nuevoLibro, id: Date.now() };
+                const nuevoLibroConID = { ...nuevoLibro, id: Date.now(), calificacion: calificacionFinal };
                 localStorage.setItem('libros', JSON.stringify([...librosGuardados, nuevoLibroConID]));
-                setMostrarConfirmacion(true);
+                setModal({ mostrar: true, tipo: 'exito', mensaje: '¡Libro agregado exitosamente!' });
             } else {
-                alert('Por favor, ingresa al menos título e imagen.');
+                setModal({ mostrar: true, tipo: 'info', mensaje: 'Por favor, ingresa al menos título e imagen.' });
             }
         } else if (operacion === 'Editar') {
-            const nuevosLibros = librosGuardados.map(libro => 
-                libro.titulo.toLowerCase() === nuevoLibro.titulo.toLowerCase() ? nuevoLibro : libro
+            const nuevosLibros = librosGuardados.map(libro =>
+                libro.titulo.toLowerCase() === nuevoLibro.titulo.toLowerCase()
+                    ? { ...nuevoLibro, calificacion: calificacionFinal }
+                    : libro
             );
             localStorage.setItem('libros', JSON.stringify(nuevosLibros));
-            alert('Libro actualizado exitosamente');
-            navigate('/libros');
+            setModal({ mostrar: true, tipo: 'exito', mensaje: '¡Libro actualizado exitosamente!' });
         }
     };
 
-    const confirmar = () => {
-        setMostrarConfirmacion(false);
-        navigate('/libros');
+    const cerrarModal = () => {
+        setModal({ mostrar: false, tipo: '', mensaje: '' });
+        if (modal.tipo === 'exito') navigate('/libros');
     };
 
     return (
         <div className="libros-crud-container">
-            <h1>Gestión de Libros</h1>
             <div className="nuevo-libro-form">
                 <label>Operación:</label>
                 <select value={operacion} onChange={handleOperacionChange}>
@@ -92,13 +104,10 @@ const LibrosCrud = () => {
                         )}
                         <label>Autor</label>
                         <input type="text" value={nuevoLibro.autor} onChange={e => setNuevoLibro({ ...nuevoLibro, autor: e.target.value })} />
-
                         <label>Categoría</label>
                         <input type="text" value={nuevoLibro.categoria} onChange={e => setNuevoLibro({ ...nuevoLibro, categoria: e.target.value })} />
-
-                        <label>Calificación</label>
+                        <label>Calificación (0 a 5)</label>
                         <input type="text" value={nuevoLibro.calificacion} onChange={e => setNuevoLibro({ ...nuevoLibro, calificacion: e.target.value })} />
-
                         <label>Descripción</label>
                         <textarea value={nuevoLibro.descripcion} onChange={e => setNuevoLibro({ ...nuevoLibro, descripcion: e.target.value })}></textarea>
                     </>
@@ -114,11 +123,18 @@ const LibrosCrud = () => {
                 )}
             </div>
 
-            {mostrarConfirmacion && (
+            {modal.mostrar && (
                 <div className="modal-confirmacion">
                     <div className="modal-contenido">
-                        <h2>¡Libro agregado exitosamente!</h2>
-                        <button onClick={confirmar}>Aceptar</button>
+                        <h2>{modal.mensaje}</h2>
+                        {modal.tipo === 'confirmarEliminar' ? (
+                            <>
+                                <button onClick={confirmarEliminar}>Aceptar</button>
+                                <button onClick={cerrarModal}>Cancelar</button>
+                            </>
+                        ) : (
+                            <button onClick={cerrarModal}>Aceptar</button>
+                        )}
                     </div>
                 </div>
             )}

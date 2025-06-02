@@ -95,8 +95,7 @@ const Libros = () => {
 
     return (
         <div className="libros-container">
-            {/* Hero, introducción y filtro igual que antes */}
-            {/* ... */}
+            {/* Aquí puedes añadir la hero-section e intro-section si las tienes */}
 
             <div className="libros-grid">
                 {librosFiltrados.map(libro => (
@@ -104,7 +103,11 @@ const Libros = () => {
                         <div className="libro-imagen-container">
                             <img src={libro.imagen} alt={libro.titulo} className="libro-imagen" />
                             <div className="libro-rating">
-                                ⭐ {libro.rating || 'N/A'}/5
+                                ⭐ {
+                                    libro.calificacion && libro.calificacion !== "N/A"
+                                        ? `${libro.calificacion}/5`
+                                        : (libro.rating ? `${libro.rating}/5` : 'Sin calificación')
+                                }
                             </div>
                         </div>
                         <div className="libro-info">
