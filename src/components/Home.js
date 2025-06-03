@@ -1,11 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; // Importa useState y useEffect de React
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Home.css'; // Importa el archivo CSS
 import heroImage from '../assets/corazon.jpg'; // Asegúrate de que la ruta sea correcta
 
-const Home = () => {
+const Home = () => {// Definimos el componente Home
     const [tests, setTests] = useState([]); // Estado para los test de psicología
     const [quizzes, setQuizzes] = useState([]); // Estado para los quizzes de personalidad
 
@@ -106,4 +106,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home; // Exporta el componente Home

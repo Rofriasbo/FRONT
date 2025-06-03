@@ -20,7 +20,7 @@ const Contacto = () => { // funcion la cual permite renderizar el html
             </ul>
 
             {/*<button className='btn btn-danger'>OK</button>   */}
-            <Maps />                   
+            <Maps />//llama al componente del mapa               
         </div>
         
     );

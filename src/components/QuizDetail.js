@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './QuizDetail.css';
 import quizHeroImage from '../assets/quiz-bg.jpg'; // Asegúrate de tener esta imagen
 
-const QuizDetail = () => {
+const QuizDetail = () => { 
     const { id } = useParams();
     const navigate = useNavigate();
     const [quiz, setQuiz] = useState(null);

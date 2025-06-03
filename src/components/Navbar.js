@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo-mental.png'; // Asegúrate de tener esta imagen en tu carpeta assets
 
-const Navbar = () => {
+const Navbar = () => { // funcion la cual permite renderizar el html
     return (
         <nav className="navbar">
             <div className="navbar-brand">
@@ -22,4 +22,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Navbar; // exporta el componente

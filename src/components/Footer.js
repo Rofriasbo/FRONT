@@ -4,9 +4,10 @@ import './Footer.css';
 import logo from '../assets/logo-mental.png'; // Usando el mismo logo del navbar
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-const Footer = () => {
+const Footer = () => {  // Componente funcional Footer
     return (
         <footer className="footer">
+            {/* Contenedor principal del footer */}
             <div className="footer-container">
                 <div className="footer-brand">
                     <img src={logo} alt="Logo MindCare" className="footer-logo" />
@@ -52,4 +53,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default Footer; // Exportación del componente Footer para su uso en otras partes de la aplicación
