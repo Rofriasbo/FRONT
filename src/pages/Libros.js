@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import './Libros.css';
 import booksImage from '../assets/libros.jpg';
 
+// Componente funcional principal
 const Libros = () => {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
     const [libros, setLibros] = useState([]);
-
+ // Lista de libros estáticos predeterminados
     const librosEstaticos = [
         {
             id: 1,
@@ -81,18 +82,18 @@ const Libros = () => {
             rating: 4.3
         }
     ];
-
+ // Hook useEffect que se ejecuta al montar el componente
     useEffect(() => {
         const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
         setLibros([...librosEstaticos, ...librosGuardados]);
     }, []);
-
+ // Extrae todas las categorías únicas de los libros y añade "Todos" al inicio
     const categorias = ['Todos', ...new Set(libros.map(libro => libro.categoria))];
-
+ // Filtra los libros dependiendo de la categoría seleccionada
     const librosFiltrados = categoriaSeleccionada === 'Todos'
         ? libros
         : libros.filter(libro => libro.categoria === categoriaSeleccionada);
-
+    // Render del componente
     return (
         <div className="libros-container">
             {/* Aquí puedes añadir la hero-section e intro-section si las tienes */}
@@ -124,4 +125,4 @@ const Libros = () => {
     );
 };
 
-export default Libros;
+export default Libros; // Exporta el componente para que pueda ser usado en otras partes de la app

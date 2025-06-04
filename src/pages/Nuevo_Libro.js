@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nuevo_Libro.css';
 
+// Componente principal
 const LibrosCrud = () => {
     const [operacion, setOperacion] = useState('Agregar');
+    // Estado para almacenar los datos del nuevo libro o libro a editar/eliminar
     const [nuevoLibro, setNuevoLibro] = useState({
         imagen: '',
         titulo: '',
@@ -12,7 +14,9 @@ const LibrosCrud = () => {
         calificacion: '',
         descripcion: ''
     });
+    // Estado para controlar el modal de confirmación, éxito o info
     const [modal, setModal] = useState({ mostrar: false, tipo: '', mensaje: '' });
+    // Hook de navegación para redirigir a otra página
     const navigate = useNavigate();
 
     const handleOperacionChange = (e) => {
@@ -20,11 +24,14 @@ const LibrosCrud = () => {
         setNuevoLibro({ imagen: '', titulo: '', autor: '', categoria: '', calificacion: '', descripcion: '' });
     };
 
+     // Función auxiliar para buscar un libro por título
     const buscarLibro = (titulo) => {
         const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
         return librosGuardados.find(libro => libro.titulo.toLowerCase() === titulo.toLowerCase());
     };
 
+
+// Ejecuta la búsqueda del libro para edición o eliminación
     const handleBuscar = () => {
         if (operacion === 'Editar' && nuevoLibro.titulo) {
             const libroEncontrado = buscarLibro(nuevoLibro.titulo);
@@ -38,13 +45,14 @@ const LibrosCrud = () => {
         }
     };
 
+     // Confirma y elimina un libro del localStorage
     const confirmarEliminar = () => {
         const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
         const nuevosLibros = librosGuardados.filter(libro => libro.titulo.toLowerCase() !== nuevoLibro.titulo.toLowerCase());
         localStorage.setItem('libros', JSON.stringify(nuevosLibros));
         setModal({ mostrar: true, tipo: 'exito', mensaje: 'Libro eliminado exitosamente.' });
     };
-
+// Maneja el envío del formulario tanto para agregar como editar
     const handleSubmit = () => {
         const librosGuardados = JSON.parse(localStorage.getItem('libros')) || [];
         // ✅ Validar y formatear calificación antes de guardar
@@ -57,6 +65,7 @@ const LibrosCrud = () => {
         }
 
         if (operacion === 'Agregar') {
+             // Verifica campos obligatorios
             if (nuevoLibro.titulo && nuevoLibro.imagen) {
                 const nuevoLibroConID = { ...nuevoLibro, id: Date.now(), calificacion: calificacionFinal };
                 localStorage.setItem('libros', JSON.stringify([...librosGuardados, nuevoLibroConID]));
@@ -65,6 +74,7 @@ const LibrosCrud = () => {
                 setModal({ mostrar: true, tipo: 'info', mensaje: 'Por favor, ingresa al menos título e imagen.' });
             }
         } else if (operacion === 'Editar') {
+            // Actualiza el libro si ya existe
             const nuevosLibros = librosGuardados.map(libro =>
                 libro.titulo.toLowerCase() === nuevoLibro.titulo.toLowerCase()
                     ? { ...nuevoLibro, calificacion: calificacionFinal }
@@ -74,7 +84,7 @@ const LibrosCrud = () => {
             setModal({ mostrar: true, tipo: 'exito', mensaje: '¡Libro actualizado exitosamente!' });
         }
     };
-
+// Cierra el modal y redirige si fue exitoso
     const cerrarModal = () => {
         setModal({ mostrar: false, tipo: '', mensaje: '' });
         if (modal.tipo === 'exito') navigate('/libros');
@@ -122,7 +132,7 @@ const LibrosCrud = () => {
                     <button onClick={handleBuscar}>Eliminar Libro</button>
                 )}
             </div>
-
+ {/* Modal de confirmación y mensajes */}
             {modal.mostrar && (
                 <div className="modal-confirmacion">
                     <div className="modal-contenido">

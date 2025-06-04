@@ -7,7 +7,7 @@ const MapComponent = () => { // Función que renderiza el mapa
         lng: -99.16729686623003
     };
     return (// Renderiza el mapa usando los componentes de Google Maps
-        <LoadScript googleMapsApiKey="AIzaSyDFjty2zEocmDWYXdUXjlQAtoUSJ5zxuBQ">// API key de Google Maps
+        <LoadScript googleMapsApiKey="AIzaSyDFjty2zEocmDWYXdUXjlQAtoUSJ5zxuBQ">
             <GoogleMap
                 mapContainerStyle={{ width: '100%', height: '400px' }}
                 center={center}

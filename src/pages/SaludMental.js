@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import './SaludMental.css';
 import mentalHealthImage from '../assets/meditacion.jpg'; // Asegúrate de tener esta imagen
 
+// Componente funcional SaludMental
 const SaludMental = () => {
+    // Array de consejos relacionados con el bienestar mental
     const tips = [
         {
             title: "Meditación Diaria",
@@ -89,4 +91,4 @@ const SaludMental = () => {
     );
 };
 
-export default SaludMental;
+export default SaludMental; // Exporta el componente para que pueda ser usado en otras partes de la app
